@@ -15,6 +15,8 @@ public class BoardDocs {
 
   public static class Request {
     public static List<FieldDescriptor> createBoard() {
+      log.info("BoardDocs.createBoard");
+
       return PrintUtil
           .builder()
 
@@ -28,6 +30,8 @@ public class BoardDocs {
     }
 
     public static List<ParameterDescriptor> getBoardPage() {
+      log.info("BoardDocs.getBoardPage");
+
       return PrintUtil
           .builder()
 
@@ -43,6 +47,8 @@ public class BoardDocs {
     }
 
     public static List<ParameterDescriptor> getBoard() {
+      log.info("BoardDocs.getBoard");
+
       return PrintUtil
           .builder()
 
@@ -55,6 +61,8 @@ public class BoardDocs {
     }
 
     public static List<ParameterDescriptor> updateBoardPath() {
+      log.info("BoardDocs.updateBoardPath");
+
       return PrintUtil
           .builder()
 
@@ -67,6 +75,8 @@ public class BoardDocs {
     }
 
     public static List<FieldDescriptor> updateBoard() {
+      log.info("BoardDocs.updateBoard");
+
       return PrintUtil
           .builder()
 
@@ -80,6 +90,8 @@ public class BoardDocs {
     }
 
     public static List<ParameterDescriptor> removeBoard() {
+      log.info("BoardDocs.removeBoard");
+
       return PrintUtil
           .builder()
 
@@ -94,6 +106,8 @@ public class BoardDocs {
 
   public static class Response {
     public static List<FieldDescriptor> createBoard() {
+      log.info("BoardDocs.createBoard");
+
       return ResponseDocs.Response
           .data()
 
@@ -107,6 +121,8 @@ public class BoardDocs {
     }
 
     public static List<FieldDescriptor> getBoardPage() {
+      log.info("BoardDocs.getBoardPage");
+
       return ResponseDocs.Response
           .page()
 
@@ -120,6 +136,8 @@ public class BoardDocs {
     }
 
     public static List<FieldDescriptor> getBoard() {
+      log.info("BoardDocs.getBoard");
+
       return ResponseDocs.Response
           .data()
 
