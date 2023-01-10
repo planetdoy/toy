@@ -45,8 +45,7 @@ public class AttachUnitImpl implements AttachUnit {
   public Attach get(Long id) {
     log.info("AttachUnit.get");
 
-    return repository.findById(id)
-        .orElseThrow(EntityNotFoundException::new);
+    return repository.findById(id).orElseThrow(EntityNotFoundException::new);
   }
 
 }

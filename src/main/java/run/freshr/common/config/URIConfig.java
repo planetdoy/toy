@@ -26,4 +26,7 @@ public class URIConfig {
   public static final String uriAuthPassword = "/auth/password";
   public static final String uriAuthInfo = "/auth/info";
 
+  public static final String uriCommunityBoard = "/community/board";
+  public static final String uriCommunityBoardId = "/community/board/{id}";
+
 }
