@@ -11,6 +11,8 @@ import com.querydsl.jpa.impl.JPAQuery;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
+import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import run.freshr.common.utils.QueryUtil;
@@ -48,20 +50,21 @@ public class BoardRepositoryImpl implements BoardRepositoryCustom {
 
     String orderType = ofNullable(search.getOrderType()).orElse("");
     String orderBy = ofNullable(search.getOrderBy()).orElse(Order.DESC.name());
+    List<OrderSpecifier<?>> orderList = new ArrayList<>();
 
     if (orderType.equalsIgnoreCase("title")) {
-      query.orderBy(new OrderSpecifier<>(orderBy.equalsIgnoreCase("desc")
+      orderList.add(new OrderSpecifier<>(orderBy.equalsIgnoreCase("desc")
           ? Order.DESC : Order.ASC, board.title));
     }
 
     if (orderType.equalsIgnoreCase("create")) {
-      query.orderBy(new OrderSpecifier<>(orderBy.equalsIgnoreCase("desc")
+      orderList.add(new OrderSpecifier<>(orderBy.equalsIgnoreCase("desc")
           ? Order.DESC : Order.ASC, board.createAt));
     }
 
-    query.orderBy(board.id.desc());
+    orderList.add(board.id.desc());
 
-    return QueryUtil.paging(query, board, search);
+    return QueryUtil.paging(query, board, search, orderList);
   }
 
 }

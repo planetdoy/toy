@@ -22,7 +22,7 @@ import run.freshr.domain.community.dto.request.BoardUpdateRequest;
 import run.freshr.domain.community.vo.CommunitySearch;
 
 @Slf4j
-@DocsGroup(name = "auth", description = "권한 관리")
+@DocsGroup(name = "community", description = "커뮤니티 관리")
 class CommunityControllerTest extends TestExtension {
 
   @Test
