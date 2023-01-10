@@ -1,9 +1,11 @@
 package run.freshr.common.utils;
 
+import static java.util.Objects.isNull;
 import static java.util.Optional.ofNullable;
 import static org.springframework.data.domain.PageRequest.of;
 
 import com.querydsl.core.BooleanBuilder;
+import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.core.types.dsl.EntityPathBase;
 import com.querydsl.core.types.dsl.StringPath;
 import com.querydsl.core.types.dsl.Wildcard;
@@ -54,6 +56,13 @@ public class QueryUtil {
       (JPAQuery<E> query, Q path, S search) {
     log.info("GlobalFunctional.paging");
 
+    return paging(query, path, search, null);
+  }
+
+  public static <E, Q extends EntityPathBase<E>, S extends SearchExtension<?>> Page<E> paging
+      (JPAQuery<E> query, Q path, S search, List<OrderSpecifier<?>> orderList) {
+    log.info("GlobalFunctional.paging");
+
     Long cursor = ofNullable(search.getCursor())
         .orElse(LocalDateTime.now()
             .atZone(ZoneId.systemDefault())
@@ -69,6 +78,10 @@ public class QueryUtil {
       functionalQuery.select(path);
       functionalQuery.offset(pageRequest.getOffset())
           .limit(pageRequest.getPageSize());
+
+      if (!isNull(orderList) && !orderList.isEmpty()) {
+        functionalQuery.orderBy(orderList.toArray(new OrderSpecifier<?>[0]));
+      }
 
       List<E> result = functionalQuery.fetch();
 

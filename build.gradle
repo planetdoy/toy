@@ -81,6 +81,8 @@ dependencies {
     annotationProcessor "jakarta.persistence:jakarta.persistence-api"
 
     implementation 'run.freshr:utils:1.0.0.RELEASE'
+    implementation 'org.jsoup:jsoup:1.15.3'
+
     implementation 'run.freshr:unit:1.0.0.RELEASE'
     implementation 'run.freshr:enumeration-mapper:1.0.0.RELEASE'
     implementation 'run.freshr:exceptions:1.0.0.RELEASE'
