@@ -6,6 +6,7 @@ import static run.freshr.domain.auth.enumeration.Privilege.DELTA;
 import static run.freshr.domain.auth.enumeration.Privilege.GAMMA;
 import static run.freshr.domain.auth.enumeration.Privilege.USER;
 
+import java.util.List;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -13,6 +14,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 import run.freshr.service.TestService;
+import run.freshr.utils.StringUtil;
 
 @Slf4j
 @Component
@@ -25,6 +27,7 @@ public class TestRunner implements ApplicationRunner {
   public static long deltaId;
   public static long userId;
   public static long attachId;
+  public static List<Long> boardIdList;
 
   @Autowired
   private TestService service;
@@ -40,6 +43,7 @@ public class TestRunner implements ApplicationRunner {
 
     setAuth();
     setCommon();
+    setCommunity();
   }
 
   private void setAuth() {
@@ -52,6 +56,15 @@ public class TestRunner implements ApplicationRunner {
 
   private void setCommon() {
     attachId = service.createAttach("test.png", "temp", service.getSign(userId));
+  }
+
+  private void setCommunity() {
+    for (int i = 0; i < 15; i++) {
+      String padding = StringUtil.padding(i + 1, 3);
+      long id = service.createBoard("title " + padding, "contents " + padding);
+
+      boardIdList.add(id);
+    }
   }
 
 }

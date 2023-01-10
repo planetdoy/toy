@@ -32,6 +32,8 @@ import run.freshr.domain.auth.unit.SignUnit;
 import run.freshr.domain.auth.unit.StaffUnit;
 import run.freshr.domain.common.entity.Attach;
 import run.freshr.domain.common.unit.AttachUnit;
+import run.freshr.domain.community.entity.Board;
+import run.freshr.domain.community.unit.BoardUnit;
 import run.freshr.mappers.EnumGetter;
 import run.freshr.mappers.EnumMapper;
 import run.freshr.utils.CryptoUtil;
@@ -170,6 +172,25 @@ public class TestServiceImpl implements TestService {
 
   public Sign getSign(long id) {
     return signUnit.get(id);
+  }
+
+  // .______     ______        ___      .______       _______
+  // |   _  \   /  __  \      /   \     |   _  \     |       \
+  // |  |_)  | |  |  |  |    /  ^  \    |  |_)  |    |  .--.  |
+  // |   _  <  |  |  |  |   /  /_\  \   |      /     |  |  |  |
+  // |  |_)  | |  `--'  |  /  _____  \  |  |\  \----.|  '--'  |
+  // |______/   \______/  /__/     \__\ | _| `._____||_______/
+  private final BoardUnit boardUnit;
+
+  public long createBoard(String title, String contents) {
+    return boardUnit.create(Board.createEntity(
+        title,
+        contents
+    ));
+  }
+
+  public Board getBoard(long id) {
+    return boardUnit.get(id);
   }
 
 }

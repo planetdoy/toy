@@ -9,6 +9,7 @@ import run.freshr.domain.auth.entity.Staff;
 import run.freshr.domain.auth.enumeration.Privilege;
 import run.freshr.domain.auth.enumeration.Role;
 import run.freshr.domain.auth.redis.AccessRedis;
+import run.freshr.domain.community.entity.Board;
 import run.freshr.mappers.EnumGetter;
 
 public interface TestService {
@@ -60,5 +61,16 @@ public interface TestService {
   Account getAccount(long id);
 
   Sign getSign(long id);
+
+  // .______     ______        ___      .______       _______
+  // |   _  \   /  __  \      /   \     |   _  \     |       \
+  // |  |_)  | |  |  |  |    /  ^  \    |  |_)  |    |  .--.  |
+  // |   _  <  |  |  |  |   /  /_\  \   |      /     |  |  |  |
+  // |  |_)  | |  `--'  |  /  _____  \  |  |\  \----.|  '--'  |
+  // |______/   \______/  /__/     \__\ | _| `._____||_______/
+
+  long createBoard(String title, String contents);
+
+  Board getBoard(long id);
 
 }
