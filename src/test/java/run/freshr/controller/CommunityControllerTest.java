@@ -27,7 +27,7 @@ class CommunityControllerTest extends TestExtension {
 
   @Test
   @DisplayName("게시글 등록")
-  @Docs()
+  @Docs(existsRequestFields = true, existsResponseFields = true)
   public void createBoard() throws Exception {
     setAnonymous();
 
@@ -47,7 +47,7 @@ class CommunityControllerTest extends TestExtension {
 
   @Test
   @DisplayName("게시글 조회 - Page")
-  @Docs()
+  @Docs(existsRequestParameters = true, existsResponseFields = true)
   public void getBoardPage() throws Exception {
     setAnonymous();
 
@@ -69,7 +69,7 @@ class CommunityControllerTest extends TestExtension {
 
   @Test
   @DisplayName("게시글 조회")
-  @Docs()
+  @Docs(existsPathParameters = true, existsResponseFields = true)
   public void getBoard() throws Exception {
     setAnonymous();
 
@@ -86,7 +86,7 @@ class CommunityControllerTest extends TestExtension {
 
   @Test
   @DisplayName("게시글 수정")
-  @Docs()
+  @Docs(existsPathParameters = true, existsRequestFields = true)
   public void updateBoard() throws Exception {
     setAnonymous();
 
@@ -107,7 +107,7 @@ class CommunityControllerTest extends TestExtension {
 
   @Test
   @DisplayName("게시글 삭제")
-  @Docs()
+  @Docs(existsPathParameters = true)
   public void removeBoard() throws Exception {
     setAnonymous();
 
