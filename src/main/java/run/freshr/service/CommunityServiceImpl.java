@@ -23,6 +23,8 @@ public class CommunityServiceImpl implements CommunityService {
 
   @Override
   public ResponseEntity<?> createBoard(BoardCreateRequest dto) {
+    log.info("CommunityService.createBoard");
+
     /**
      * Response DTO: {@link IdResponse}
      */
@@ -31,6 +33,8 @@ public class CommunityServiceImpl implements CommunityService {
 
   @Override
   public ResponseEntity<?> getBoardPage(CommunitySearch search) {
+    log.info("CommunityService.getBoardPage");
+
     /**
      * Response DTO: {@link BoardListResponse}
      */
@@ -39,6 +43,8 @@ public class CommunityServiceImpl implements CommunityService {
 
   @Override
   public ResponseEntity<?> getBoard(Long id) {
+    log.info("CommunityService.getBoard");
+
     /**
      * Response DTO: {@link BoardResponse}
      */
@@ -47,11 +53,15 @@ public class CommunityServiceImpl implements CommunityService {
 
   @Override
   public ResponseEntity<?> updateBoard(Long id, BoardUpdateRequest dto) {
+    log.info("CommunityService.updateBoard");
+
     return null;
   }
 
   @Override
   public ResponseEntity<?> removeBoard(Long id) {
+    log.info("CommunityService.removeBoard");
+
     return null;
   }
 
