@@ -41,10 +41,6 @@ services:
   minio-mc:
     container_name: ${MINIO_MC_NAME}
     image: minio/mc
-    volumes:
-      - type: bind
-        source: ${WAIT_FOR_IT}
-        target: /wait-for-it.sh
     depends_on:
       - minio
     entrypoint: >
